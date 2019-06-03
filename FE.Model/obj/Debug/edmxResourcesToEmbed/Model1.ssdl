@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_FOODModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id_Bill" />
+    </Key>
+    <Property Name="id_Bill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="totalPrice" Type="float" Nullable="false" />
+    <Property Name="id_Table" Type="int" Nullable="false" />
+    <Property Name="id_User" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_FOOD.dbo.DetailBill' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DetailBill">
+    <Key>
+      <PropertyRef Name="number" />
+      <PropertyRef Name="id_Bill" />
+      <PropertyRef Name="id_F" />
+    </Key>
+    <Property Name="number" Type="int" Nullable="false" />
+    <Property Name="id_Bill" Type="int" Nullable="false" />
+    <Property Name="id_F" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="id_F" />
+    </Key>
+    <Property Name="id_F" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_F" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="id_FC" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="id_FC" />
+    </Key>
+    <Property Name="id_FC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_FC" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FoodTable">
+    <Key>
+      <PropertyRef Name="id_Table" />
+    </Key>
+    <Property Name="id_Table" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_Table" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeUser">
+    <Key>
+      <PropertyRef Name="id_Type" />
+    </Key>
+    <Property Name="id_Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_User" />
+    </Key>
+    <Property Name="id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_User" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_Type" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Bill__id_Table__656C112C">
+    <End Role="FoodTable" Type="Self.FoodTable" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodTable">
+        <PropertyRef Name="id_Table" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="id_Table" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bill__id_User__66603565">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_User" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailBil__id_Bi__6B24EA82">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="DetailBill" Type="Self.DetailBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id_Bill" />
+      </Principal>
+      <Dependent Role="DetailBill">
+        <PropertyRef Name="id_Bill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailBill__id_F__6C190EBB">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="DetailBill" Type="Self.DetailBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="id_F" />
+      </Principal>
+      <Dependent Role="DetailBill">
+        <PropertyRef Name="id_F" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Food__id_FC__5BE2A6F2">
+    <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="id_FC" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="id_FC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__id_Type__628FA481">
+    <End Role="TypeUser" Type="Self.TypeUser" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeUser">
+        <PropertyRef Name="id_Type" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_FOODModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FoodTable" EntityType="Self.FoodTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeUser" EntityType="Self.TypeUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailBill" EntityType="Self.DetailBill" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DetailBill].[number] AS [number], 
+    [DetailBill].[id_Bill] AS [id_Bill], 
+    [DetailBill].[id_F] AS [id_F]
+    FROM [dbo].[DetailBill] AS [DetailBill]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Bill__id_Table__656C112C" Association="Self.FK__Bill__id_Table__656C112C">
+      <End Role="FoodTable" EntitySet="FoodTable" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__id_User__66603565" Association="Self.FK__Bill__id_User__66603565">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailBil__id_Bi__6B24EA82" Association="Self.FK__DetailBil__id_Bi__6B24EA82">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="DetailBill" EntitySet="DetailBill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailBill__id_F__6C190EBB" Association="Self.FK__DetailBill__id_F__6C190EBB">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="DetailBill" EntitySet="DetailBill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Food__id_FC__5BE2A6F2" Association="Self.FK__Food__id_FC__5BE2A6F2">
+      <End Role="FoodCategory" EntitySet="FoodCategory" />
+      <End Role="Food" EntitySet="Food" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__id_Type__628FA481" Association="Self.FK__User__id_Type__628FA481">
+      <End Role="TypeUser" EntitySet="TypeUser" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_FOODModelStoreContainer" CdmEntityContainer="DB_FOODEntities">
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="DB_FOODModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="id_Bill" ColumnName="id_Bill" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+          <ScalarProperty Name="id_Table" ColumnName="id_Table" />
+          <ScalarProperty Name="id_User" ColumnName="id_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="DB_FOODModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="id_F" ColumnName="id_F" />
+          <ScalarProperty Name="name_F" ColumnName="name_F" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="id_FC" ColumnName="id_FC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodCategories">
+      <EntityTypeMapping TypeName="DB_FOODModel.FoodCategory">
+        <MappingFragment StoreEntitySet="FoodCategory">
+          <ScalarProperty Name="id_FC" ColumnName="id_FC" />
+          <ScalarProperty Name="name_FC" ColumnName="name_FC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodTables">
+      <EntityTypeMapping TypeName="DB_FOODModel.FoodTable">
+        <MappingFragment StoreEntitySet="FoodTable">
+          <ScalarProperty Name="id_Table" ColumnName="id_Table" />
+          <ScalarProperty Name="name_Table" ColumnName="name_Table" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeUsers">
+      <EntityTypeMapping TypeName="DB_FOODModel.TypeUser">
+        <MappingFragment StoreEntitySet="TypeUser">
+          <ScalarProperty Name="id_Type" ColumnName="id_Type" />
+          <ScalarProperty Name="name_Type" ColumnName="name_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_FOODModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_User" ColumnName="id_User" />
+          <ScalarProperty Name="name_User" ColumnName="name_User" />
+          <ScalarProperty Name="id_Type" ColumnName="id_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailBills">
+      <EntityTypeMapping TypeName="DB_FOODModel.DetailBill">
+        <MappingFragment StoreEntitySet="DetailBill">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="id_Bill" ColumnName="id_Bill" />
+          <ScalarProperty Name="id_F" ColumnName="id_F" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

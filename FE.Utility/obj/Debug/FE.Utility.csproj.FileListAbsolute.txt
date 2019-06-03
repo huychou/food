@@ -1,0 +1,9 @@
+C:\Users\dungl\source\repos\WebApi\FE.Utility\bin\Debug\FE.Utility.dll
+C:\Users\dungl\source\repos\WebApi\FE.Utility\bin\Debug\FE.Utility.pdb
+C:\Users\dungl\source\repos\WebApi\FE.Utility\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dungl\source\repos\WebApi\FE.Utility\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dungl\source\repos\WebApi\FE.Utility\obj\Debug\FE.Utility.csprojAssemblyReference.cache
+C:\Users\dungl\source\repos\WebApi\FE.Utility\obj\Debug\FE.Utility.csproj.CoreCompileInputs.cache
+C:\Users\dungl\source\repos\WebApi\FE.Utility\obj\Debug\FE.Utility.csproj.CopyComplete
+C:\Users\dungl\source\repos\WebApi\FE.Utility\obj\Debug\FE.Utility.dll
+C:\Users\dungl\source\repos\WebApi\FE.Utility\obj\Debug\FE.Utility.pdb
